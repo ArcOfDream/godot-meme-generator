@@ -1,0 +1,326 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://opensans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/meme_scene.gd" type="Script" id=2]
+[ext_resource path="res://templates/Layer 9.png" type="Texture" id=3]
+[ext_resource path="res://scripts/meme_image.gd" type="Script" id=4]
+[ext_resource path="res://impact.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/top_label.gd" type="Script" id=6]
+[ext_resource path="res://scripts/bottom_label.gd" type="Script" id=7]
+[ext_resource path="res://black.png" type="Texture" id=8]
+[ext_resource path="res://scripts/meme_list.gd" type="Script" id=9]
+[ext_resource path="res://scripts/savediag.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFontData" id=5]
+
+font_path = "res://sourcesans.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 12
+font/font = ExtResource( 1 )
+fallback/0 = SubResource( 5 )
+fallback/1 = null
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 32
+font/font = ExtResource( 5 )
+fallback/0 = ExtResource( 5 )
+fallback/1 = null
+
+[sub_resource type="DynamicFont" id=4]
+
+font/size = 32
+font/font = ExtResource( 5 )
+fallback/0 = null
+
+[node name="main_panel" type="Panel"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = SubResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
+
+[node name="grid" type="GridContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 8.0
+margin/top = 8.0
+margin/right = 8.0
+margin/bottom = 8.0
+custom_constants/hseparation = 8
+columns = 3
+
+[node name="text_panel" type="PanelContainer" parent="grid"]
+
+rect/min_size = Vector2( 200, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 584.0
+
+[node name="grid" type="GridContainer" parent="grid/text_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 244.0
+margin/bottom = 577.0
+columns = 1
+
+[node name="top_label" type="LineEdit" parent="grid/text_panel/grid"]
+
+rect/min_size = Vector2( 150, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 237.0
+margin/bottom = 27.0
+text = "Top Meme Stuff"
+focus_mode = 2
+
+[node name="bottom_label" type="LineEdit" parent="grid/text_panel/grid"]
+
+rect/min_size = Vector2( 150, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 31.0
+margin/right = 237.0
+margin/bottom = 58.0
+text = "Bottom Meme Stuff"
+focus_mode = 2
+
+[node name="save_button" type="Button" parent="grid/text_panel/grid"]
+
+rect/min_size = Vector2( 50, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 62.0
+margin/right = 237.0
+margin/bottom = 85.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Save"
+flat = false
+
+[node name="preview_panel" type="PanelContainer" parent="grid"]
+
+rect/min_size = Vector2( 500, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 259.0
+margin/top = 0.0
+margin/right = 824.0
+margin/bottom = 584.0
+
+[node name="split" type="VSplitContainer" parent="grid/preview_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 558.0
+margin/bottom = 577.0
+split/offset = 0
+split/collapsed = false
+split/dragger_visibility = 1
+
+[node name="label" type="Label" parent="grid/preview_panel/split"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 551.0
+margin/bottom = 17.0
+text = "Preview:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="center" type="CenterContainer" parent="grid/preview_panel/split"]
+
+rect/min_size = Vector2( 500, 500 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 29.0
+margin/right = 551.0
+margin/bottom = 570.0
+use_top_left = false
+
+[node name="image" type="TextureFrame" parent="grid/preview_panel/split/center"]
+
+rect/min_size = Vector2( 500, 500 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 20.0
+margin/right = 525.0
+margin/bottom = 520.0
+texture = ExtResource( 3 )
+stretch_mode = 0
+script/script = ExtResource( 4 )
+
+[node name="top_label" type="Label" parent="grid/preview_panel/split/center"]
+
+rect/min_size = Vector2( 500, 500 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 25.0
+margin/top = 20.0
+margin/right = 525.0
+margin/bottom = 520.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 1
+text = "top meme stuff"
+align = 1
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 6 )
+
+[node name="bottom_label" type="Label" parent="grid/preview_panel/split/center"]
+
+rect/min_size = Vector2( 500, 500 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 25.0
+margin/top = 20.0
+margin/right = 525.0
+margin/bottom = 520.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 1
+text = "bottom meme stuff"
+align = 1
+valign = 2
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 7 )
+
+[node name="blank" type="TextureFrame" parent="grid/preview_panel/split/center"]
+
+visibility/behind_parent = true
+rect/min_size = Vector2( 500, 500 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 20.0
+margin/right = 525.0
+margin/bottom = 520.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 2
+
+[node name="memelist_panel" type="PanelContainer" parent="grid"]
+
+rect/min_size = Vector2( 200, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 832.0
+margin/top = 0.0
+margin/right = 1083.0
+margin/bottom = 584.0
+
+[node name="ItemList" type="ItemList" parent="grid/memelist_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 244.0
+margin/bottom = 577.0
+script/script = ExtResource( 9 )
+
+[node name="filediag" type="FileDialog" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 663.0
+margin/bottom = 560.0
+popup/exclusive = false
+window/title = "Save a File"
+dialog/hide_on_ok = false
+script/script = ExtResource( 10 )
+
+[connection signal="text_changed" from="grid/text_panel/grid/top_label" to="grid/preview_panel/split/center/top_label" method="_on_top_label_text_changed"]
+
+[connection signal="text_changed" from="grid/text_panel/grid/bottom_label" to="grid/preview_panel/split/center/bottom_label" method="_on_bottom_label_text_changed"]
+
+[connection signal="pressed" from="grid/text_panel/grid/save_button" to="." method="_on_save_button_pressed"]
+
+[connection signal="item_selected" from="grid/memelist_panel/ItemList" to="grid/preview_panel/split/center/image" method="_on_item_select"]
+
+[connection signal="file_selected" from="filediag" to="." method="_on_filediag_file_selected"]
+
+
