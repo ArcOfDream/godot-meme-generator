@@ -11,33 +11,30 @@
 [ext_resource path="res://scripts/meme_list.gd" type="Script" id=9]
 [ext_resource path="res://scripts/savediag.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=1]
 
 font_path = "res://sourcesans.ttf"
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 font/size = 12
 font/font = ExtResource( 1 )
-fallback/0 = SubResource( 5 )
-fallback/1 = null
+fallback/0 = SubResource( 1 )
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id=3]
 
-default_font = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-
-font/size = 32
-font/font = ExtResource( 5 )
-fallback/0 = ExtResource( 5 )
-fallback/1 = null
+default_font = SubResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 
 font/size = 32
 font/font = ExtResource( 5 )
-fallback/0 = null
+fallback/0 = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+
+font/size = 32
+font/font = ExtResource( 5 )
 
 [node name="main_panel" type="Panel"]
 
@@ -47,7 +44,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = SubResource( 2 )
+theme/theme = SubResource( 3 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
@@ -105,7 +102,10 @@ margin/top = 0.0
 margin/right = 237.0
 margin/bottom = 27.0
 text = "Top Meme Stuff"
+placeholder/alpha = 0.6
 focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
 
 [node name="bottom_label" type="LineEdit" parent="grid/text_panel/grid"]
 
@@ -119,7 +119,10 @@ margin/top = 31.0
 margin/right = 237.0
 margin/bottom = 58.0
 text = "Bottom Meme Stuff"
+placeholder/alpha = 0.6
 focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
 
 [node name="save_button" type="Button" parent="grid/text_panel/grid"]
 
@@ -169,6 +172,7 @@ split/dragger_visibility = 1
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 551.0
@@ -212,11 +216,12 @@ rect/min_size = Vector2( 500, 500 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 25.0
 margin/top = 20.0
 margin/right = 525.0
 margin/bottom = 520.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -237,11 +242,12 @@ rect/min_size = Vector2( 500, 500 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 25.0
 margin/top = 20.0
 margin/right = 525.0
 margin/bottom = 520.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
